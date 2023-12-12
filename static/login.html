@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/form-styles.css">
+    <title>Войти</title>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Авторизация</h1>
+        <form class="login-form" action="/login" method="post">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Войти">
+        </form>
+        <div class="register-link">
+            Еще нет аккаунта? <a href="register.html">Зарегистрируйтесь</a>
+        </div>
+        <div class="home-link">
+            <a href="main.html">На главную</a>
+        </div>
+    </div>
+    
+</body>
+</html>
