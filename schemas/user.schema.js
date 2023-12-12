@@ -12,10 +12,12 @@ const UserSchema = new mongoose.Schema({
     minlength: 8,
     required: true,
   },
-  role: [{
-    type: String,
-    ref: 'Roles'
-  }]
-})
+  admin: {
+    type: Boolean,
+  },
+  driver: {
+    type: Boolean,
+  }
+});
 
 module.exports = connection.model('Users', UserSchema)

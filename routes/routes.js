@@ -4,7 +4,10 @@ const User = connection.models.Users;
 const passport = require('passport');
 const controller = require('../schemas/authController');
 const roleMiddleware = require('./roleMiddleware');
-const authMiddleware = require('./authMiddleware');
+const isAuth = require('./authMiddleware').isAuth;
+const isAdmin = require('./authMiddleware').isAdmin;
+const isDriver = require('./authMiddleware').isDriver;
+
 
 const router = Router();
 
@@ -77,11 +80,27 @@ passport.authenticate('local', {
 })
 );
 
-router.post('/register', controller.registration);
+router.post('/register', (req, res, next) => {
+    const username = req.body.username;
+  const password = req.body.password;
+  const admin = req.body.admin === 'true';
+  const driver = req.body.driver === 'false';
+
+  const newuser = new User({
+    username: username,
+    password: password,
+    admin: admin,
+    driver: driver
+  });
+
+  newuser.save().then((user) => {
+    console.log(user);
+  });
+});
 
 //-------------------------------USER ROUTES------------------------
 
-router.get('/autouser', roleMiddleware(["USER"]), (req, res, next) => {
+router.get('/autouser', (req, res, next) => {
     res.render('index', {
         title: 'Главная',
         isUserPage: true,
@@ -90,7 +109,7 @@ router.get('/autouser', roleMiddleware(["USER"]), (req, res, next) => {
 
 //-------------------------------DRIVER ROUTES------------------------
 
-router.get('/autodriver', roleMiddleware(["DRIVER"]), (req, res, next) => {
+router.get('/autodriver', (req, res, next) => {
     res.render('index', {
         title: 'Главная',
         isUserPage: true,
@@ -100,14 +119,14 @@ router.get('/autodriver', roleMiddleware(["DRIVER"]), (req, res, next) => {
 
 //-------------------------------ADMIN ROUTES------------------------
 
-router.get('/admin', roleMiddleware(["ADMIN"]), (req, res, next) => {
+router.get('/admin', (req, res, next) => {
     res.render('index', {
         title: 'Главная',
         isAdminPage: true,
     });
 });
 
-router.get('/adminbus', roleMiddleware(["ADMIN"]), (req, res, next) => {
+router.get('/adminbus', isAdmin, (req, res, next) => {
     res.render('buses', {
         title: 'Автобусы',
         isAdminPage: true,
