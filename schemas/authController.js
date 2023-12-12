@@ -1,8 +1,8 @@
 // const User = require('./user.schema.js');
 // const Role = require('./role.schema.js');
 // const bcrypt = require('bcryptjs');
-// // const { validationResult } = require('express-validator');
-// // const {secret} = require("../config/config");
+// const { validationResult } = require('express-validator');
+// const {secret} = require("../config/config");
 // // const jwt = require('jsonwebtoken');
 
 // // const generateAccessToken = (id, roles) => {
@@ -20,14 +20,14 @@
 //             // if (!errors.isEmpty()) {
 //             //     return res.status(400).json({message: "Ошибка при регистрации", errors})
 //             // }
-//             const {username, password} = req.body;
+//             const {username, password, admin, driver} = req.body;
 //             const candidate = await User.findOne({username})
 //             if (candidate) {
 //                 return res.status(400).json({message: "Пользователь с таким именем уже существует"})
 //             }
 //             const hashPassword = bcrypt.hashSync(password, 7);
 //             // const userRole = await Role.findOne({value: "USER"})
-//             const user = new User({username, password: hashPassword})
+//             const user = new User({username, password: hashPassword, admin, driver})
 //             await user.save()
 //             return res.send('<h1>Регистрация прошла успешно</h1><p><a href="/login">Войти</a></p>');
 //         } catch (e) {
@@ -35,6 +35,7 @@
 //             res.status(400).json({message: 'Registration error'})
 //         }
 //     }
+// }
 
 //     // async login(req, res) {
 //     //     try {

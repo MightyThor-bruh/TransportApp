@@ -81,21 +81,26 @@ passport.authenticate('local', {
 );
 
 router.post('/register', (req, res, next) => {
-    const username = req.body.username;
-  const password = req.body.password;
-  const admin = req.body.admin === 'true';
-  const driver = req.body.driver === 'false';
+    const user = new User();
+user.username = req.body.username;
+user.password = req.body.password;
+user.admin = req.body.admin === 'true';
+user.driver = req.body.driver === 'true';
 
-  const newuser = new User({
-    username: username,
-    password: password,
-    admin: admin,
-    driver: driver
-  });
-
-  newuser.save().then((user) => {
-    console.log(user);
-  });
+user.save(function(err) {
+  if (err) {
+    console.log(err);
+    res.status(500).send('Error creating user');
+  } else {
+    console.log('User created successfully!');
+    if (user.admin && !user.driver) {
+      res.redirect('/admin');
+    } else if (!user.admin && user.driver) {
+      res.redirect('/autodriver');
+    } else {
+      res.redirect('/autouser');
+    }
+}});
 });
 
 //-------------------------------USER ROUTES------------------------
