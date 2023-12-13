@@ -23,4 +23,4 @@ const RouteSchema = new mongoose.Schema({
   }]
 });
 
-module.exports = model('Route', RouteSchema)
+module.exports = mongoose.model('Route', RouteSchema)

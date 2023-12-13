@@ -20,4 +20,4 @@ const ScheduleSchema = new mongoose.Schema({
   }
 });
 
-module.exports = model('Schedule', ScheduleSchema)
+module.exports = mongoose.model('Schedule', ScheduleSchema)
