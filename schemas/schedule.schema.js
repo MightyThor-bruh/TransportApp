@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connection = require('../config/database');
+// const connection = require('../config/database');
 
 const ScheduleSchema = new mongoose.Schema({
     name: {
@@ -20,4 +20,4 @@ const ScheduleSchema = new mongoose.Schema({
   }
 });
 
-module.exports = connection.model('Schedule', ScheduleSchema)
+module.exports = model('Schedule', ScheduleSchema)

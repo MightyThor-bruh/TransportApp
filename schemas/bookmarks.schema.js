@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connection = require('../config/database');
+// const connection = require('../config/database');
 
 const BookmarksSchema = new mongoose.Schema({
   user: {
@@ -13,4 +13,4 @@ const BookmarksSchema = new mongoose.Schema({
   },
 });
 
-module.exports = connection.model('Bookmarks', BookmarksSchema)
+module.exports = model('Bookmarks', BookmarksSchema)

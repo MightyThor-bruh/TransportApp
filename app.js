@@ -47,8 +47,8 @@ app.use(session({
   
 //passport setup
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 //using router for specified routes
 app.use(router);
@@ -57,12 +57,12 @@ app.use(router);
 
 async function init() {
 
-    // try{
-    //     await mongoose.connect(`mongodb://localhost:27017/${DB_NAME}`);
-    // }
-    // catch(e) {
-    //     console.log(`Database connection error`, e);
-    // }
+    try{
+        await mongoose.connect(`mongodb://localhost:27017/${DB_NAME}`);
+    }
+    catch(e) {
+        console.log(`Database connection error`, e);
+    }
 
     const server = app.listen(PORT, () => {
         console.log(`Server has been started at http://localhost:${PORT}`);

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connection = require('../config/database');
+// const connection = require('../config/database');
 
 const TripsSchema = new mongoose.Schema({
   driver: {
@@ -19,4 +19,4 @@ const TripsSchema = new mongoose.Schema({
   }
 });
 
-module.exports = connection.model('Trips', TripsSchema)
+module.exports = model('Trips', TripsSchema)

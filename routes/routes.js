@@ -1,12 +1,16 @@
 const { Router } = require("express");
-const connection = require('../config/database');
-const User = connection.models.Users;
+// const connection = require('../config/database');
+const User = require('../schemas/user.schema');
 const passport = require('passport');
 const controller = require('../schemas/authController');
 const roleMiddleware = require('./roleMiddleware');
 const isAuth = require('./authMiddleware').isAuth;
 const isAdmin = require('./authMiddleware').isAdmin;
 const isDriver = require('./authMiddleware').isDriver;
+const authenticateToken = require('./authMiddleware').authenticateToken;
+const jwt = require('jsonwebtoken');
+
+const secretKey = 'mySecretKey';
 
 
 const router = Router();
@@ -61,47 +65,95 @@ router.get('/logout', (req, res, next) => {
 
 //--------------------------------PROTECTED ROUTE-------------------------
 
-router.get('/protected-route', (req, res, next) => {
-    if (req.isAuthenticated()) {
-        res.send('<h1>You are authenticated</h1><p><a href="/logout">Logout and reload</a></p>');
-    } else {
-        res.send('<h1>You are not authenticated</h1><p><a href="/login">Login</a></p>');
-    }
-});
+// router.get('/protected-route', (req, res, next) => {
+//     if (req.isAuthenticated()) {
+//         res.send('<h1>You are authenticated</h1><p><a href="/logout">Logout and reload</a></p>');
+//     } else {
+//         res.send('<h1>You are not authenticated</h1><p><a href="/login">Login</a></p>');
+//     }
+// });
 
 //--------------------------------POST ROUTES-------------------------
 
-router.post('/login', 
-// controller.login
-passport.authenticate('local', {
-    successRedirect: '/protected-route',
-    failureRedirect: '/login'
-  
-})
-);
-
-router.post('/register', (req, res, next) => {
-    const user = new User();
-user.username = req.body.username;
-user.password = req.body.password;
-user.admin = req.body.admin === 'true';
-user.driver = req.body.driver === 'true';
-
-user.save(function(err) {
-  if (err) {
-    console.log(err);
-    res.status(500).send('Error creating user');
-  } else {
-    console.log('User created successfully!');
-    if (user.admin && !user.driver) {
-      res.redirect('/admin');
-    } else if (!user.admin && user.driver) {
-      res.redirect('/autodriver');
-    } else {
-      res.redirect('/autouser');
+router.post('/login', (req, res) => {
+    const user = {
+        username: req.body.username,
+        password: req.body.password,
+        admin: req.body.admin,
+        driver: req.body.driver
+      }
+    // Проверка, что пользователь с таким логином существует и пароль верный
+    if (!user[username] || user[username] !== password) {
+      return res.status(401).json({ message: 'Неправильный логин или пароль' });
     }
-}});
-});
+    jwt.sign({user}, 'secretkey', (err, token) => {
+        res.json({
+          token
+        });
+      });
+  });
+
+//  router.get('/profile', authenticateToken, (req, res) => {
+//     // Получение данных пользователя из объекта запроса
+//     const { username } = req.user;
+//     res.json({ username });
+//   });
+
+router.post('/register', (req, res) => {
+    // Получить данные пользователя из запроса
+    const user = new User({
+      username: req.body.username,
+      password: req.body.password,
+      admin: req.body.admin,
+      driver: req.body.driver
+    })
+    user.save((err) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send('Ошибка при сохранении пользователя в базе данных');
+        } else {
+          // Создать токен
+          jwt.sign({ user }, 'secretkey', (err, token) => {
+            res.json({
+              token
+            });
+          });
+        }
+      });
+  });
+  
+
+// router.post('/login', 
+// // controller.login
+// passport.authenticate('local', {
+//     successRedirect: '/protected-route',
+//     failureRedirect: '/login'
+  
+// })
+// );
+
+// router.post('/register', (req, res, next) => {
+//     const user = new User();
+// user.username = req.body.username;
+// user.password = req.body.password;
+// user.admin = req.body.admin === 'true';
+// user.driver = req.body.driver === 'true';
+
+// user.save(function(err) {
+//   if (err) {
+//     console.log(err);
+//     res.status(500).send('Error creating user');
+//   } else {
+//     console.log('User created successfully!');
+//     if (user.admin && !user.driver) {
+//       res.redirect('/admin');
+//     } else if (!user.admin && user.driver) {
+//       res.redirect('/autodriver');
+//     } else {
+//       res.redirect('/autouser');
+//     }
+// }});
+// });
 
 //-------------------------------USER ROUTES------------------------
 

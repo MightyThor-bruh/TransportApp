@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connection = require('../config/database');
+// const connection = require('../config/database');
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -20,4 +20,4 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-module.exports = connection.model('Users', UserSchema)
+module.exports = model('Users', UserSchema)

@@ -46,3 +46,28 @@ module.exports.isDriver = (req, res, next) => {
         res.status(401).json({msg: 'Вы не авторизованы и не можете просматривать данный ресурс'});
     }
 }
+const jwt = require('jsonwebtoken');
+
+const secretKey = 'mySecretKey';
+
+function authenticateToken(req, res, next) {
+    // Получение заголовка Authorization с токеном
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+  
+    if (!token) {
+      // Токен не найден
+      return res.status(401).json({ message: 'Невалидный токен' });
+    }
+  
+    // Проверка валидности токена
+    jwt.verify(token, secretKey, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: 'Невалидный токен' });
+      }
+      console.log(decoded)
+      // Сохранение декодированных данных токена в объекте запроса
+      req.user = decoded;
+      next();
+    });
+  }
