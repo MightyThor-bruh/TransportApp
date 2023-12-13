@@ -1,6 +1,6 @@
 // const User = require('../schemas/user.schema');
-const jwt = require('jsonwebtoken')
-const {secret} = require('../config/config')
+// const jwt = require('jsonwebtoken')
+// const {secret} = require('../config/config')
 
 // module.exports.isAuth = (req, res, next) => {
 //     if(req.isAuthenticated()) {

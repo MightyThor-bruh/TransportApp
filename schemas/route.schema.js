@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// const connection = require('../config/database');
+const connection = require('../config/database');
 
 const RouteSchema = new mongoose.Schema({
   number: {
@@ -23,4 +23,4 @@ const RouteSchema = new mongoose.Schema({
   }]
 });
 
-module.exports = mongoose.model('Route', RouteSchema)
+module.exports = connection.model('Route', RouteSchema)

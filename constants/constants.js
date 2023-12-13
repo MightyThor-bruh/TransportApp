@@ -1,5 +1,5 @@
-const PORT = 3010;
-const DB_NAME = 'citytransport';
+const PORT = 3000;
+const DB_NAME = 'testdb';
 
 module.exports = {
     PORT,

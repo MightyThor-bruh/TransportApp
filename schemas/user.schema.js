@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// const connection = require('../config/database');
+const connection = require('../config/database');
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -12,12 +12,8 @@ const UserSchema = new mongoose.Schema({
     minlength: 8,
     required: true,
   },
-  admin: {
-    type: Boolean,
-  },
-  driver: {
-    type: Boolean,
-  }
+  admin:  Boolean,
+  driver:  Boolean,
 });
 
-module.exports = mongoose.model('Users', UserSchema)
+module.exports = connection.model('Users', UserSchema)
