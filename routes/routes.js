@@ -80,11 +80,13 @@ passport.authenticate('local', {
 );
 
 router.post('/register', (req, res, next) => {
-    const user = new User();
-user.username = req.body.username;
-user.password = req.body.password;
-user.admin = req.body.admin === 'true';
-user.driver = req.body.driver === 'false';
+    const user = new User({
+        username: req.body.username,
+        password: req.body.password,
+        admin: req.body.admin,
+        driver: req.body.driver
+    });
+
 
 user.save(function(err) {
   if (err) {
