@@ -1,16 +1,18 @@
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const connection = require('./database');
-const bcrypt = require('bcryptjs');
-const User = connection.models.Users;
+import passport from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
+import db from '../db/db.connection.js';
+import { DB_COLLECTIONS } from '../constants/constants.js';
+import bcrypt from 'bcryptjs';
 
+const User = db.getModel(DB_COLLECTIONS.USERS);
 
 const verifyCallback = (username, password, done) => {
-    User.findOne({username: username}).then((user) => {
+    User.findOne({ username }).then((user) => {
+        console.log(`User found!`);
         if(!user) {
             return done(null, false)
         }
-        const isValid = bcrypt.compareSync(password, user.password);
+        const isValid = password === user.password;
         if(isValid) {
             return done(null, user);
         }
@@ -18,7 +20,8 @@ const verifyCallback = (username, password, done) => {
             return done(null, false);
         }
     })
-    .catch((err) => {
+    .catch((err) => {        
+        console.log(`Cannot find User!`);
         done(err);
     });
 }
@@ -34,7 +37,7 @@ passport.serializeUser((user, done) => {
     done(null, user.id);
 });
   
-  passport.deserializeUser((userId, done) => {
+passport.deserializeUser((userId, done) => {
     User.findById(userId).then((user) => {
         done(null, user);
     })

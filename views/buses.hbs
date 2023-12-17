@@ -1,24 +1,21 @@
 {{#if isAdminPage}}
-            <h1>Расписание городского транспорта</h1>
-            <p>some text here</p>
-            <h2>Добавить новый маршрут</h2>
-            <form action="add_route.php" method="post">
-                <label for="number">Номер:</label>
-                <input type="text" id="number" name="number"><br><br>
-                <label for="driver">Водитель:</label>
-                <input type="text" id="driver" name="driver"><br><br>
-                <label for="transport_type">Тип транспорта:</label>
-                <select id="transport_type" name="transport_type">
-                    <option value="автобус">Автобус</option>
-                    <option value="троллейбус">Троллейбус</option>
-                    <option value="трамвай">Трамвай</option>
-                </select><br><br>
-                <label for="schedule">Расписание:</label>
-                <input type="text" id="schedule" name="schedule"><br><br>
-                <input type="submit" value="Добавить маршрут">
-            </form>
-
-{{else}}
-<h1>Расписание автобусов</h1>
-            <p>some text here</p>
+<div class="routes-admin">
+    <div class="form-block">
+    <h4>Добавить новый маршрут</h4>
+        <form action="/addroute" method="post">
+            <label for="number">Номер:</label>
+            <input type="text" id="number" name="number"><br><br>
+            <label for="transport_type">Тип транспорта:</label>
+            <select id="transport_type" name="transport_type">
+                <option value="автобус">Автобус</option>
+                <option value="троллейбус">Троллейбус</option>
+                <option value="трамвай">Трамвай</option>
+            </select><br><br>
+            <label for="schedule">Расписание:</label>
+            <input type="text" id="s
+            chedule" name="schedule"><br><br>
+            <input type="submit" value="Добавить маршрут">
+        </form>
+    </div>
+</div>
 {{/if}}

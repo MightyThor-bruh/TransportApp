@@ -24,9 +24,9 @@
             <ul>
               <li><a href="/main"><img src="./css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
               <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
-              <li><a href="/adminbus">Автобусы</a></li>
-              <li><a href="/trolleybuses">Троллейбусы</a></li>
-              <li><a href="/trams">Трамваи</a></li>
+              <li><a href="/transport/bus">Автобусы</a></li>
+              <li><a href="/transport/troll">Троллейбусы</a></li>
+              <li><a href="/transport/tram">Трамваи</a></li>
               
               <li style="float:right"><a href="#logout">Выйти</a></li>
               {{#if isDriverPage}}
@@ -50,18 +50,13 @@
     <body>
         <div class="header">
             <ul>
-              <li><a href="/main"><img src="./css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+              <li><a href="/admin"><img src="./css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
               <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
-              <li><a href="/buses">Автобусы</a></li>
-              <li><a href="/trolleybuses">Троллейбусы</a></li>
-              <li><a href="/trams">Трамваи</a></li>
+              <li><a href="/adminbus">Маршруты</a></li>
+              <li><a href="/adminschedule">Расписание</a></li>
+              <li><a href="/admintrip">Рейсы</a></li>
               
-              <li style="float:right"><a href="#logout">Выйти</a></li>
-    
-              <li style="float:right"><a href="#modify">Рейсы</a></li>
-              <li style="float:right"><a href="#modify">Водители</a></li>
-              <li style="float:right"><a href="#modify">Остановки</a></li>
-              <li style="float:right"><a href="#modify">Расписание</a></li>
+              <li style="float:right"><a href="/logout">Выйти</a></li>
               
             </ul>
         </div>
@@ -81,9 +76,9 @@
             <ul>
               <li><a href="/"><img src="./css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
               <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
-              <li><a href="/buses">Автобусы</a></li>
-              <li><a href="/trolleybuses">Троллейбусы</a></li>
-              <li><a href="/trams">Трамваи</a></li>
+              <li><a href="/transport/bus">Автобусы</a></li>
+              <li><a href="/transport/troll">Троллейбусы</a></li>
+              <li><a href="/transport/tram">Трамваи</a></li>
               
               <li style="float:right"><a href="/login">Войти</a></li>
               <li style="float:right"><a href="/register">Регистрация</a></li>

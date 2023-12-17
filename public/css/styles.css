@@ -126,3 +126,54 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #3e9fb2;
 }
+
+.form-block {
+    display: block;
+    width: 240px;
+    align-content: center;
+    justify-content: center;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+#route-numbers {
+    margin-bottom: 0;
+    list-style: none;
+    padding: 0;
+}
+
+#route-numbers > li {
+    float: left;
+}
+
+#route-numbers > li > a {
+    border-radius: 10px;
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 22px;
+}
+
+.stop-list {
+    margin-bottom: 20px;
+    padding-left: 0;
+    align-content: center;
+}
+
+.stop-list-item {
+    position: relative;
+  display: block;
+  padding: 10px 15px;
+    padding-left: 15px;
+  margin-bottom: -1px;
+}

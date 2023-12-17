@@ -1,0 +1,22 @@
+{{#if isAdminPage}}
+<h4>Добавить новое расписание</h4>
+<div class="form-block">
+    <form action="/addschedule" method="post">
+    <label for="number">Номер маршрута:</label>
+    <input type="text" id="number" name="number"><br><br>
+    <label for="arrival_time">Время прибытия:</label>
+    <input type="text" id="arrival_time" name="arrival_time"><br><br>
+    <label for="bus-stop">Остановка:</label>
+    <select id="bus-stop" name="bus-stop">
+        <option value=""></option>
+    </select><br><br>
+    <label for="day-of-week">День недели:</label>
+    <select id="day-of-week" name="day-of-week">
+        <option value="будний">Будний</option>
+        <option value="выходной">Выходной</option>
+    </select><br><br>
+    <input type="submit" value="Добавить маршрут">
+    </form>
+</div>
+
+{{/if}}

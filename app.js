@@ -1,16 +1,17 @@
-const express = require('express');
-const {PORT, DB_NAME} = require('./constants/constants');
-const { router } = require('./routes/routes');
-const path = require('path');
-const {engine} = require('express-handlebars');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const connection = require('./config/database');
-require('./config/passport')
-require('dotenv').config();
-
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { PORT, DB_NAME } from './constants/constants.js';
+import router from './routes/router.js';
+import { join } from 'path';
+import { engine } from 'express-handlebars';
+import session from 'express-session';
+import passport from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
+import './config/passport.js';
+import 'dotenv/config'
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //create app
 const app = express();
@@ -31,11 +32,7 @@ app.set('views', './views');
 
 //using public folder for css
 
-app.use(
-    express.static(
-        path.join(__dirname, 'public')
-    )
-);
+app.use(express.static(join(__dirname, 'public')));
 
 //session setup
 

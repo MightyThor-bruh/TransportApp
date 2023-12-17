@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const connection = require('../config/database');
 
 const ScheduleSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    arrival_time: {
+  route: {
+    type: String,
+    required: true,
+  },
+  arrival_time: {
     type: Date,
     required: true,
   },
@@ -20,4 +20,5 @@ const ScheduleSchema = new mongoose.Schema({
   }
 });
 
-module.exports = connection.model('Schedule', ScheduleSchema)
+// module.exports = connection.model('Schedule', ScheduleSchema)
+module.exports = ScheduleSchema;

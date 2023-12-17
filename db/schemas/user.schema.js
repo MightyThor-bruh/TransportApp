@@ -1,7 +1,6 @@
-const mongoose = require("mongoose");
-const connection = require('../config/database');
+import { Schema } from "mongoose";
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
   username: {
     type: String,
     unique: true,
@@ -16,4 +15,4 @@ const UserSchema = new mongoose.Schema({
   driver:  Boolean,
 });
 
-module.exports = connection.model('Users', UserSchema)
+export default UserSchema;

@@ -1,5 +1,5 @@
 
-module.exports.isAuth = (req, res, next) => {
+export function isAuth(req, res, next) {
     if(req.isAuthenticated()) {
         next();
     } 
@@ -8,7 +8,7 @@ module.exports.isAuth = (req, res, next) => {
     }
 }
 
-module.exports.isAdmin = (req, res, next) => {
+export function isAdmin(req, res, next) {
     if(req.isAuthenticated() && req.user.admin) {
         next();
     } 
@@ -17,7 +17,7 @@ module.exports.isAdmin = (req, res, next) => {
     }
 }
 
-module.exports.isDriver = (req, res, next) => {
+export function isDriver(req, res, next) {
     if(req.isAuthenticated() && req.user.driver) {
         next();
     } 
