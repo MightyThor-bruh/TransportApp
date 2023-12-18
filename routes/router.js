@@ -61,6 +61,7 @@ router.get(Routes.driver.index, isDriver, driversPageController);
 router.get(Routes.admin.index, isAdmin, adminController);
 router.get(Routes.admin.bus, isAdmin, busController);
 router.post(Routes.admin.addroute, isAdmin, busController);
+router.post(Routes.admin.addtrip, isAdmin, tripController);
 router.get(Routes.admin.schedule, isAdmin, scheduleSetupController);
 router.get(Routes.admin.trip, isAdmin, tripController);
 

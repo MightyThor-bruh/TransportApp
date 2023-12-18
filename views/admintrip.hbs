@@ -1,23 +1,19 @@
 {{#if isAdminPage}}
-<h4>Добавить новую поездку</h4>
-<div class="form-block">
-    <form action="/addtrip" method="post">
-    <label for="driver">Водитель:</label>
-    <select id="driver" name="driver">
-        <option value=""></option>
-    </select><br><br>
-
-    <label for="route">Маршрут:</label>
-    <select id="route" name="route">
-        <option value=""></option>
-    </select><br><br>
-
-    <label for="status">Статус:</label>
-    <select id="status" name="status">
-        <option value=""></option>
-    </select><br><br>
-    <input type="submit" value="Добавить поездку">
-    </form>
+<div class="routes-admin">
+    <div class="form-block">
+        <h4>Добавить новую поездку</h4>
+        <form action="/addtrip" method="post">
+            <label for="driver">Водитель:</label>
+            <input type="text" id="driver" name="driver"><br><br>
+            <label for="route">Маршрут:</label>
+            <input type="text" id="route" name="route"><br><br>
+            <label for="status">Статус:</label>
+            <input type="text" id="status" name="status"><br><br>
+            <input type="submit" value="Добавить поездку">
+        </form>
+    </div>
 </div>
+
+
 
 {{/if}}

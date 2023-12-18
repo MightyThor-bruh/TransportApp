@@ -1,22 +1,16 @@
-const mongoose = require("mongoose");
-const connection = require('../config/database');
+import { Schema } from "mongoose";
 
-const TripsSchema = new mongoose.Schema({
-  driver: {
-    type: String,
-    required: true,
-    ref: 'drivers',
-  },
-  route: {
-    type: String,
-    required: true,
-    ref: 'Route',
-  },
-  status: {
-    type: String,
-    required: true,
-    ref: 'statuses',
-  }
+const TripsSchema = new Schema({
+  driver: String,
+  route: String,
+  status: String,
 });
 
-module.exports = connection.model('Trips', TripsSchema)
+const StatusSchema = new Schema({
+  name: String,
+});
+
+export {
+  TripsSchema,
+  StatusSchema
+};

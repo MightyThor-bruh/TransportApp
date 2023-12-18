@@ -31,10 +31,6 @@ const busController = (req, res, next) => {
     }).finally(() => {
         console.log(`Route saved!`);
     });
-    
-    // const Schedule = db.getModel(DB_COLLECTIONS.SCHEDULE);
-    // const Schedule = connection.model('Schedule', ScheduleSchema);
-    // const Stages = connection.model('RouteStages', RouteStagesSchema);
 }
 
 const scheduleSetupController = (req, res, next) => {
@@ -45,9 +41,20 @@ const scheduleSetupController = (req, res, next) => {
 }
 
 const tripController = (req, res, next) => {
-    res.render('admintrip', {
-        title: 'Управление поездками',
-        isAdminPage: true,
+    const tripModel = db.getModel(DB_COLLECTIONS.TRIPS);
+    const trip = new tripModel(req.body);
+    console.log(trip);
+    trip.save().then((data) => {
+        res.render('admintrip', {
+            title: 'Управление поездками',
+            isAdminPage: true,
+        });
+        console.log(trip);
+    }).catch((err) => {        
+        console.log(err);
+        res.status(500).send('Saving trip error');
+    }).finally(() => {
+        console.log(`Trip saved!`);
     });
 }
 

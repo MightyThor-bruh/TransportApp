@@ -4,7 +4,8 @@ const DB_COLLECTIONS = {
     DRIVERS: "Drivers",
     ROUTES: "Routes",
     USERS: "Users",
-    TRANSPORT: "Transport"
+    TRANSPORT: "Transport",
+    TRIPS: "Trips"
 }
 
 export {

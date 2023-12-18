@@ -1,6 +1,7 @@
 import DriverSchema from './schemas/drivers.schema.js';
 import UserSchema from './schemas/user.schema.js';
 import { TransportRouteSchema, TransportTypeSchema } from './schemas/transport.scheme.js';
+import { TripsSchema, StatusSchema } from './schemas/trips.schema.js';
 
 const DB_MODELS = {
     Drivers: {
@@ -18,6 +19,14 @@ const DB_MODELS = {
     Transport: {
         name: "transporttypes",
         scheme: TransportTypeSchema
+    },
+    Trips: {
+        name: "trips",
+        scheme: TripsSchema
+    },
+    Statuses: {
+        name: "statuses",
+        scheme: StatusSchema
     }
 }
 
