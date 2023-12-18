@@ -12,10 +12,28 @@ const transportTypeController = async (req, res, next) => {
     }
 }
 
+// const transportStopsController = (req, res, next) => {
+//     res.render('route-stops', {
+//         title: 'Остановки на маршруте',
+//     });
+// }
+
 const transportStopsController = (req, res, next) => {
-    res.render('route-stops', {
-        title: 'Остановки на маршруте',
+    const transportNumber = req.params && req.params.number;
+    const routeStopModel = db.getModel(DB_COLLECTIONS.ROUTES);
+    routeStopModel.find({number: `${transportNumber}`}).exec().then((data) => {
+        const allStops = data[0].schedule.map((stop) => stop.bus_stop);
+        res.render('route-stops', {
+            title: "Остановки на маршруте",
+            stops: allStops
+        });
+    }).catch((err) => {        
+        console.log(err);
+        res.status(500).send('Error getting route stops');
+    }).finally(() => {
+        console.log(`Route stops List send!`);
     });
+    
 }
 
 export {

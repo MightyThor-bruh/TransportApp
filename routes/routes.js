@@ -16,7 +16,7 @@ const routes = {
         type: "/types",
         routes: "/transport/:type",
         protected: "/protected-route",
-        stops: "/route-stops"
+        stops: "/route-stops/:number"
     },
     admin: {
         index: "/admin",

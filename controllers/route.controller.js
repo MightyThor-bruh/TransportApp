@@ -7,7 +7,7 @@ const transportRouteController = (req, res, next) => {
     TransportRouteModel.find({type: `${transportType}`}).exec().then((data) => {
         res.render('transport', {
             title: transportType === 'bus' ? "Автобус" : ( transportType === 'troll' ? "Троллейбус" : "Трамвай"),
-            text: `Расписание ${transportType === 'bus' ? "автобуса" : ( transportType === 'troll' ? "троллейбуса" : "Трамвая")}`,
+            text: `Расписание ${transportType === 'bus' ? "автобуса" : ( transportType === 'troll' ? "троллейбуса" : "трамвая")}`,
             transport: data
         });
     }).catch((err) => {        
@@ -21,6 +21,9 @@ const transportRouteController = (req, res, next) => {
     // const Schedule = connection.model('Schedule', ScheduleSchema);
     // const Stages = connection.model('RouteStages', RouteStagesSchema);
 }
+
+
+
 
 const protectedRouteController = (req, res, next) => {
     if (req.isAuthenticated()) {
