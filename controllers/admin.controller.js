@@ -18,6 +18,7 @@ const adminController = (req, res, next) => {
 const busController = (req, res, next) => {
     const busModel = db.getModel(DB_COLLECTIONS.ROUTES);
     const bus = new busModel(req.body);
+    bus.shedule = [req.body.arrival_time, req.body.bus_stop, req.body.day_of_week];
     console.log(bus);
     bus.save().then((data) => {
         res.render('buses', {
