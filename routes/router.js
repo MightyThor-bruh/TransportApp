@@ -13,7 +13,9 @@ import {
     loginPageController,
     signinPageController,
     logoutPageController,
-    userPageController
+    userPageController,
+    userRouteController,
+    userTypeController
 } from '../controllers/user.controller.js';
 import {
     transportTypeController,
@@ -55,6 +57,8 @@ router.post(Routes.user.login, userLoginController);
 router.post(Routes.user.signin, userSigninController);
 //-------------------------------USER ROUTES------------------------
 router.get(Routes.user.page, isAuth, userPageController);
+router.get(Routes.user.routes, isAuth, userRouteController);
+router.get(Routes.user.type, isAuth, userTypeController);
 //-------------------------------DRIVER ROUTES------------------------
 router.get(Routes.driver.index, isDriver, driversPageController);
 //-------------------------------ADMIN ROUTES------------------------

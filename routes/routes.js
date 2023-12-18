@@ -8,7 +8,9 @@ const routes = {
         login: "/login",
         signin: "/register",
         logout: "/logout",
-        page: "/autouser"
+        page: "/autouser",
+        routes: "/user/:type",
+        type: "/types"
     },
     transport: {
         type: "/types",

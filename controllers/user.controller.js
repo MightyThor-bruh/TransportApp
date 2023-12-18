@@ -61,11 +61,42 @@ const userPageController = (req, res, next) => {
     });
 }
 
+const userRouteController = (req, res, next) => {
+    const transportType = req.params && req.params.type;
+    const userRouteModel = db.getModel(DB_COLLECTIONS.ROUTES);
+    userRouteModel.find({type: `${transportType}`}).exec().then((data) => {
+        res.render('transport', {
+            title: transportType === 'bus' ? "Автобус" : ( transportType === 'troll' ? "Троллейбус" : "Трамвай"),
+            text: `Расписание ${transportType === 'bus' ? "автобуса" : ( transportType === 'troll' ? "троллейбуса" : "Трамвая")}`,
+            transport: data,
+            isUserPage: true
+        });
+    }).catch((err) => {        
+        console.log(err);
+        res.status(500).send('Error getting routes');
+    }).finally(() => {
+        console.log(`Routes List send!`);
+    });
+}
+
+const userTypeController = async (req, res, next) => {
+    const userTypeModel = db.getModel(DB_COLLECTIONS.TRANSPORT);
+    const db_response = await userTypeModel.find({}).exec();
+    if(db_response) {
+        res.send(db_response);
+    } else {       
+        console.log(err);
+        res.status(500).send('Error getting transport types'); 
+    }
+}
+
 export {
     userSigninController,
     userLoginController,
     loginPageController,
     signinPageController,
     logoutPageController,
-    userPageController
+    userPageController,
+    userRouteController,
+    userTypeController
 }
