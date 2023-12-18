@@ -5,12 +5,24 @@
         <form action="/addroute" method="post">
             <label for="number">Номер:</label>
             <input type="text" id="number" name="number"><br><br>
-            <label for="transport_type">Тип транспорта:</label>
-            <select id="transport_type" name="transport_type">
-                <option value="автобус">Автобус</option>
-                <option value="троллейбус">Троллейбус</option>
-                <option value="трамвай">Трамвай</option>
+
+            <label for="type">Тип транспорта:</label>
+            <select id="type" name="type">
+                <option value="bus">Автобус</option>
+                <option value="troll">Троллейбус</option>
+                <option value="tram">Трамвай</option>
             </select><br><br>
+
+            <label for="arrival_time">Время прибытия:</label>
+            <input type="text" id="arrival_time" name="arrival_time"><br><br>
+
+            <label for="bus_stop">Остановка:</label>
+            <input type="text" id="bus_stop" name="bus_stop"><br><br>
+
+            <label for="day_of_week">День недели:</label>
+            <input type="text" id="day_of_week" name="day_of_week"><br><br>
+
+
             <input type="submit" value="Добавить маршрут">
         </form>
     </div>

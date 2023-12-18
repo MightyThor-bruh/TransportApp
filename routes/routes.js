@@ -19,6 +19,7 @@ const routes = {
     admin: {
         index: "/admin",
         bus: "/adminbus",
+        addroute: "/addroute",
         schedule: "/adminschedule",
         trip: "/admintrip"
     },
