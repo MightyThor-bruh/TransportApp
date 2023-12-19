@@ -21,7 +21,7 @@ import {
     transportTypeController,
     transportStopsController
 } from "../controllers/transport-type.controller.js";
-import {scheduleController} from "../controllers/schedule.controller.js";
+import {showScheduleController} from "../controllers/schedule.controller.js";
 import {
     adminController,
     busController,
@@ -45,8 +45,8 @@ router.get(Routes.index, (req, res, next) => {
 router.get(Routes.driver.list, driversController)
 router.get(Routes.transport.routes, transportRouteController)
 router.get(Routes.transport.type, transportTypeController)
-router.get(Routes.schedule.list, scheduleController);
-router.get(Routes.schedule.weekend, scheduleController);
+router.get(Routes.schedule.list, showScheduleController);
+router.get(Routes.schedule.weekend, showScheduleController);
 router.get(Routes.transport.stops, transportStopsController);
 //-----------------------------------AUTHORIZATION ROUTES---------------------------
 router.get(Routes.user.login, loginPageController);

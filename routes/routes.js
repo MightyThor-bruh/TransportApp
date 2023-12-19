@@ -1,7 +1,7 @@
 const routes = {
     index: "/",
     schedule: {
-        list: "/schedule",
+        list: "/schedule/:bus_stop",
         weekend: "/schedule-weekend"
     },    
     user: {
