@@ -24,8 +24,18 @@ const showTripController = (req, res, next) => {
 
 const busController = (req, res, next) => {
     const busModel = db.getModel(DB_COLLECTIONS.ROUTES);
-    const bus = new busModel(req.body);
-    bus.shedule = [req.body.arrival_time, req.body.bus_stop, req.body.day_of_week];
+    const busDict = {
+        number: req.body.number,
+        type: req.body.type,
+        schedule: [
+            {
+                arrival_time: req.body.arrival_time,
+                bus_stop: req.body.bus_stop,
+                day_of_week: req.body.day_of_week
+            },
+        ]
+    }
+    const bus = new busModel(busDict);
     console.log(bus);
     bus.save().then((data) => {
         res.render('buses', {
