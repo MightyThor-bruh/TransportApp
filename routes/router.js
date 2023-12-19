@@ -26,7 +26,9 @@ import {
     adminController,
     busController,
     scheduleSetupController,
-    tripController
+    tripController,
+    showBusController,
+    showTripController
 } from "../controllers/admin.controller.js";
 
 import { isAuth, isAdmin, isDriver } from './authMiddleware.js';
@@ -63,10 +65,10 @@ router.get(Routes.user.type, isAuth, userTypeController);
 router.get(Routes.driver.index, isDriver, driversPageController);
 //-------------------------------ADMIN ROUTES------------------------
 router.get(Routes.admin.index, isAdmin, adminController);
-router.get(Routes.admin.bus, isAdmin, busController);
+router.get(Routes.admin.bus, isAdmin, showBusController);
 router.post(Routes.admin.addroute, isAdmin, busController);
 router.post(Routes.admin.addtrip, isAdmin, tripController);
 router.get(Routes.admin.schedule, isAdmin, scheduleSetupController);
-router.get(Routes.admin.trip, isAdmin, tripController);
+router.get(Routes.admin.trip, isAdmin, showTripController);
 
 export default router;

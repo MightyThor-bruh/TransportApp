@@ -8,12 +8,19 @@ const adminController = (req, res, next) => {
     });
 };
 
-// const busController = (req, res, next) => {
-//     res.render('buses', {
-//         title: 'Управление маршрутами',
-//         isAdminPage: true,
-//     });
-// }
+const showBusController = (req, res, next) => {
+    res.render('buses', {
+        title: 'Управление маршрутами',
+        isAdminPage: true,
+    });
+}
+
+const showTripController = (req, res, next) => {
+    res.render('admintrip', {
+        title: 'Управление поездками',
+        isAdminPage: true,
+    });
+}
 
 const busController = (req, res, next) => {
     const busModel = db.getModel(DB_COLLECTIONS.ROUTES);
@@ -63,5 +70,7 @@ export {
     adminController,
     busController,
     scheduleSetupController,
-    tripController
+    tripController,
+    showBusController,
+    showTripController
 }

@@ -22,7 +22,11 @@
     <body>
         <div class="header">
             <ul>
-              <li><a href="/main"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+                {{#if isDriverPage}}
+                    <li><a href="/autodriver"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+                {{else}}
+                    <li><a href="/autouser"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+                {{/if}}
               <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
               <li><a href="/user/bus">Автобусы</a></li>
               <li><a href="/user/troll">Троллейбусы</a></li>
@@ -30,9 +34,9 @@
               
               <li style="float:right"><a href="/logout">Выйти</a></li>
               {{#if isDriverPage}}
-              <li style="float:right"><a href="#trips">Рейсы</a></li>
+                <li style="float:right"><a href="#trips">Рейсы</a></li>
               {{else}}
-              <li style="float:right"><a href="#bookmarks">Избранные маршруты</a></li>
+                <li style="float:right"><a href="#bookmarks">Избранные маршруты</a></li>
               {{/if}}
             </ul>
         </div>
