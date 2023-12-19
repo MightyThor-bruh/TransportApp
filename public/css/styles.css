@@ -169,15 +169,6 @@ input[type="submit"]:hover {
     font-size: 22px;
 }
 
-/* .stop-list {
-    margin-bottom: 20px;
-    padding-left: 0;
-    justify-content: center;
-    list-style: none;
-    position: relative;
-    display: block;
-} */
-
 .stop-list ul {
     list-style-type: none;
     justify-content: center;
@@ -196,3 +187,13 @@ input[type="submit"]:hover {
     text-decoration: none;
 }
 
+.bookmark-button {
+    border: none; /* Убираем границу */
+    color: white; /* Белый текст */
+    padding: 10px 24px; /* Отступы внутри кнопки */
+    cursor: pointer; /* Иконка указателя */
+    margin-right: 10px; /* Отступ между кнопками */
+    margin-bottom: 20px;
+    font-family: "Tenor Sans";
+    background-color: #0162a7;
+}

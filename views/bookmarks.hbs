@@ -1,0 +1,17 @@
+{{#if isUserPage}}
+<div class="center-block">
+    <h1>Мои закладки</h1>
+    <ul id="route-numbers">        
+        {{#each transport}}
+            <li>
+                <a href="">
+                     {{#each this}}
+                         {{number}}
+                    {{/each}}
+                </a>
+            </li>           
+        {{/each}}
+    </ul>
+
+</div>
+{{/if}}

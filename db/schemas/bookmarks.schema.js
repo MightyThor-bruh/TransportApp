@@ -1,16 +1,11 @@
-const mongoose = require("mongoose");
-const connection = require('../config/database');
+import { Schema } from "mongoose";
 
-const BookmarksSchema = new mongoose.Schema({
+const BookmarksSchema = new Schema({
   user: {
     type: String,
-    required: true,
     ref: 'Users',
   },
-  route: {
-    type: String,
-    required: true,
-  },
+  route: String,
 });
 
-module.exports = connection.model('Bookmarks', BookmarksSchema)
+export default BookmarksSchema

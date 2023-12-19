@@ -22,13 +22,32 @@ const showScheduleController = (req, res, next) => {
     }).finally(() => {
         console.log(`Schedule sent!`);
     });
-    
-    // const Schedule = db.getModel(DB_COLLECTIONS.SCHEDULE);
-    // const Schedule = connection.model('Schedule', ScheduleSchema);
-    // const Stages = connection.model('RouteStages', RouteStagesSchema);
+
+}
+
+const bookmarkController = (req, res, next) => {
+    const bookmarkModel = db.getModel(DB_COLLECTIONS.BOOKMARKS);
+    const bookmark = new bookmarkModel({
+        user: req.user.login,
+        route: req.params.number,
+    });
+    console.log(bookmark);
+    bookmark.save().then((data) => {
+        res.render('bookmarks', {
+            title: 'Избранные маршруты',
+            isUserPage: true,
+        });
+        console.log(bookmark);
+    }).catch((err) => {        
+        console.log(err);
+        res.status(500).send('Saving bookmark error');
+    }).finally(() => {
+        console.log(`Bookmark saved!`);
+    });
 }
 
 export {
     showScheduleController,
+    bookmarkController
     // scheduleController
 }
