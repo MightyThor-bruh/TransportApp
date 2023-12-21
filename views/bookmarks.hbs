@@ -2,11 +2,11 @@
 <div class="center-block">
     <h1>Мои закладки</h1>
     <ul id="route-numbers">        
-        {{#each transport}}
+        {{#each marks}}
             <li>
-                <a href="">
+                <a href="/user/route-stops/:number">
                      {{#each this}}
-                         {{number}}
+                         {{route}}
                     {{/each}}
                 </a>
             </li>           

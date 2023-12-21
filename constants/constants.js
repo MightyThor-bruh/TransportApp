@@ -5,7 +5,9 @@ const DB_COLLECTIONS = {
     ROUTES: "Routes",
     USERS: "Users",
     TRANSPORT: "Transport",
-    TRIPS: "Trips"
+    TRIPS: "Trips",
+    BOOKMARKS: "Bookmarks",
+    STATUSES: "Statuses"
 }
 
 export {

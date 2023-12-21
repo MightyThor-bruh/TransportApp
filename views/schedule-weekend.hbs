@@ -1,10 +1,10 @@
- <h1>Расписание маршрута на остановке</h1>
-          <p>Направление:</p>
-          <p>Следующий рейс:</p>
+ <h1>Расписание маршрута</h1>
           <div class="days-nav">
             <a href="/schedule-weekday"><button style="background-color: rgb(176, 175, 175);">Будние</button></a>
             <a href="/schedule-weekend"><button style="background-color: #0162a7">Выходные</button></a>
-            <button class="bookmark-button">Добавить в избранное</button>
+            {{#if isUserPage}}
+            <a href="/bookmarks"><button class="bookmark-button">Добавить в избранное</button></a>
+            {{/if}}
           </div>
 
           <div class="nav-table">

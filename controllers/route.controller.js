@@ -16,10 +16,6 @@ const transportRouteController = (req, res, next) => {
     }).finally(() => {
         console.log(`Routes List send!`);
     });
-    
-    // const Schedule = db.getModel(DB_COLLECTIONS.SCHEDULE);
-    // const Schedule = connection.model('Schedule', ScheduleSchema);
-    // const Stages = connection.model('RouteStages', RouteStagesSchema);
 }
 
 

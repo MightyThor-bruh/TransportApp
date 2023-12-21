@@ -13,13 +13,14 @@ const userSigninController = (req, res, next) => {
 
     user.save().then((a, b) => {
         console.log('User created successfully!');
-        if (user.admin && !user.driver) {
-            res.redirect('/admin');
-        } else if (!user.admin && user.driver) {
-            res.redirect('/autodriver');
-        } else {
-            res.redirect('/autouser');
-        }
+        // if (user.admin && !user.driver) {
+        //     res.redirect('/admin');
+        // } else if (!user.admin && user.driver) {
+        //     res.redirect('/autodriver');
+        // } else {
+        //     res.redirect('/autouser');
+        // }
+        res.redirect('/login');
     }).catch((err) => {
         console.log(err);
         res.status(500).send('Error creating user');
@@ -90,6 +91,26 @@ const userTypeController = async (req, res, next) => {
     }
 }
 
+
+const userStopsController = (req, res, next) => {
+    const transportNumber = req.params && req.params.number;
+    const userStopModel = db.getModel(DB_COLLECTIONS.ROUTES);
+    userStopModel.find({number: `${transportNumber}`}).exec().then((data) => {
+        const allStops = data[0].schedule.map((stop) => stop.bus_stop);
+        res.render('route-stops', {
+            title: "Остановки на маршруте",
+            isUserPage: true,
+            stops: allStops
+        });
+    }).catch((err) => {        
+        console.log(err);
+        res.status(500).send('Error getting route stops');
+    }).finally(() => {
+        console.log(`Route stops List send!`);
+    });
+    
+}
+
 export {
     userSigninController,
     userLoginController,
@@ -98,5 +119,6 @@ export {
     logoutPageController,
     userPageController,
     userRouteController,
-    userTypeController
+    userTypeController,
+    userStopsController
 }

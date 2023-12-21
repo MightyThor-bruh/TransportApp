@@ -15,13 +15,17 @@ import {
     logoutPageController,
     userPageController,
     userRouteController,
-    userTypeController
+    userTypeController,
+    userStopsController
 } from '../controllers/user.controller.js';
 import {
     transportTypeController,
     transportStopsController
 } from "../controllers/transport-type.controller.js";
-import {showScheduleController} from "../controllers/schedule.controller.js";
+import {showScheduleController, 
+    bookmarkController, 
+    showBookmarkController
+} from "../controllers/schedule.controller.js";
 import {
     adminController,
     busController,
@@ -61,6 +65,9 @@ router.post(Routes.user.signin, userSigninController);
 router.get(Routes.user.page, isAuth, userPageController);
 router.get(Routes.user.routes, isAuth, userRouteController);
 router.get(Routes.user.type, isAuth, userTypeController);
+router.post(Routes.user.newbookmark, isAuth, bookmarkController);
+router.get(Routes.user.bookmarks, isAuth, showBookmarkController);
+router.get(Routes.user.stops, isAuth, userStopsController);
 //-------------------------------DRIVER ROUTES------------------------
 router.get(Routes.driver.index, isDriver, driversPageController);
 //-------------------------------ADMIN ROUTES------------------------

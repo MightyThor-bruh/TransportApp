@@ -1,7 +1,7 @@
 const routes = {
     index: "/",
     schedule: {
-        list: "/schedule/:bus_stop",
+        list: "/schedule-weekday",
         weekend: "/schedule-weekend"
     },    
     user: {
@@ -10,7 +10,11 @@ const routes = {
         logout: "/logout",
         page: "/autouser",
         routes: "/user/:type",
-        type: "/types"
+        type: "/types",
+        newbookmark: "/newbookmark/:number",
+        bookmarks: "/bookmarks",
+        stops: "/user/route-stops/:number"
+
     },
     transport: {
         type: "/types",

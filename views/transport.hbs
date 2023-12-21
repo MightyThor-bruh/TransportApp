@@ -1,15 +1,28 @@
 <h1>{{text}}</h1>
 <div class="center-block">
-    <ul id="route-numbers">        
-        {{#each transport}}
-            <li>
-                <a href="/route-stops/:number">
-                     {{#each this}}
-                         {{number}}
-                    {{/each}}
-                </a>
-            </li>           
-        {{/each}}
+    <ul id="route-numbers">   
+        {{#if isUserPage}}
+            {{#each transport}}
+                <li>
+                    <a href="/user/route-stops/:number">
+                        {{#each this}}
+                            {{number}}
+                        {{/each}}
+                    </a>
+                </li>           
+            {{/each}}
+        {{else}}
+            {{#each transport}}
+                <li>
+                    <a href="/route-stops/:number">
+                        {{#each this}}
+                            {{number}}
+                        {{/each}}
+                    </a>
+                </li>           
+            {{/each}}
+
+        {{/if}} 
     </ul>
 
 </div>

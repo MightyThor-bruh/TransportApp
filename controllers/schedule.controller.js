@@ -28,14 +28,14 @@ const showScheduleController = (req, res, next) => {
 const bookmarkController = (req, res, next) => {
     const bookmarkModel = db.getModel(DB_COLLECTIONS.BOOKMARKS);
     const bookmark = new bookmarkModel({
-        user: req.user.login,
+        user: req.user.username,
         route: req.params.number,
     });
     console.log(bookmark);
     bookmark.save().then((data) => {
         res.render('bookmarks', {
             title: 'Избранные маршруты',
-            isUserPage: true,
+            isUserPage: true
         });
         console.log(bookmark);
     }).catch((err) => {        
@@ -46,8 +46,26 @@ const bookmarkController = (req, res, next) => {
     });
 }
 
+const showBookmarkController = (req, res, next) => {
+    const user = req.user.username;
+    const markModel = db.getModel(DB_COLLECTIONS.BOOKMARKS);
+    markModel.find({user: `${user}`}).exec().then((data) => {
+        res.render('bookmarks', {
+            title: 'Мои закладки',
+            isUserPage: true,
+            marks: data
+        });
+    }).catch((err) => {        
+        console.log(err);
+        res.status(500).send('Error getting bookmarks!');
+    }).finally(() => {
+        console.log(`Bookmarks List send!`);
+    });
+}
+
 export {
     showScheduleController,
-    bookmarkController
+    bookmarkController,
+    showBookmarkController
     // scheduleController
 }
