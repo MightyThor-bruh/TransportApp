@@ -126,8 +126,3 @@ h1 {
     text-decoration: none;
     color: #0162a7;
 }
-
-.routes-admin {
-    display: flex;
-    justify-content: center;
-}

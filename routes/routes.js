@@ -27,8 +27,12 @@ const routes = {
         bus: "/adminbus",
         addroute: "/addroute",
         addtrip: "/addtrip",
-        schedule: "/adminschedule",
-        trip: "/admintrip"
+        trip: "/admintrip",
+        deleteroute: "/deleteroute",
+        updateroute: "/updateroute",
+        addschedule: "/addschedule",
+        updatetrip: "/updatetrip",
+        deletetrip: "/deletetrip"
     },
     driver: {
         list: "/drivers",

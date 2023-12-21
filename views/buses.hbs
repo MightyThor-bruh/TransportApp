@@ -1,5 +1,8 @@
 {{#if isAdminPage}}
 <div class="routes-admin">
+
+{{!-- форма для добавления маршрута --}}
+
     <div class="form-block">
     <h4>Добавить новый маршрут</h4>
         <form action="/addroute" method="post">
@@ -22,9 +25,77 @@
             <label for="schedule[]">День недели:</label>
             <input type="text" id="day_of_week" name="day_of_week"><br><br>
 
-
             <input type="submit" value="Добавить маршрут">
         </form>
     </div>
+
+{{!-- форма для удаления маршрута --}}
+
+    <div class="form-block">
+        <h4>Удалить маршрут</h4>
+            <form action="/deleteroute" method="post">
+                <label for="number">Номер:</label>
+                <input type="text" id="number" name="number"><br><br>
+
+                <label for="type">Тип транспорта:</label>
+                <select id="type" name="type">
+                    <option value="bus">Автобус</option>
+                    <option value="troll">Троллейбус</option>
+                    <option value="tram">Трамвай</option>
+                </select><br><br>
+
+                <input type="submit" value="Удалить маршрут">
+            </form>
+    </div>
+
+{{!-- форма для изменения расписания --}}
+
+<div class="form-block">
+    <h4>Изменить расписание</h4>
+        <form action="/updateroute" method="post">
+            <label for="number">Номер:</label>
+            <input type="text" id="number" name="number"><br><br>
+
+            <label for="type">Тип транспорта:</label>
+            <select id="type" name="type">
+                <option value="bus">Автобус</option>
+                <option value="troll">Троллейбус</option>
+                <option value="tram">Трамвай</option>
+            </select><br><br>
+
+            <label for="schedule[]">Время прибытия:</label>
+            <input type="text" id="arrival_time" name="arrival_time"><br><br>
+
+            <label for="schedule[]">Остановка:</label>
+            <input type="text" id="bus_stop" name="bus_stop"><br><br>
+
+            <label for="schedule[]">День недели:</label>
+            <input type="text" id="day_of_week" name="day_of_week"><br><br>
+
+            <input type="submit" value="Изменить расписание">
+        </form>
+</div>
+
+{{!-- форма для добавления расписания --}}
+
+<div class="form-block">
+    <h4>Добавить расписание к маршруту</h4>
+        <form action="/addschedule" method="post">
+            <label for="number">Номер:</label>
+            <input type="text" id="number" name="number"><br><br>
+
+            <label for="schedule[]">Время прибытия:</label>
+            <input type="text" id="arrival_time" name="arrival_time"><br><br>
+
+            <label for="schedule[]">Остановка:</label>
+            <input type="text" id="bus_stop" name="bus_stop"><br><br>
+
+            <label for="schedule[]">День недели:</label>
+            <input type="text" id="day_of_week" name="day_of_week"><br><br>
+
+            <input type="submit" value="Добавить расписание">
+        </form>
+    </div>
+
 </div>
 {{/if}}

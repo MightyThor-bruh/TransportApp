@@ -101,6 +101,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
   
 label {
@@ -134,9 +135,12 @@ input[type="submit"]:hover {
 
 .form-block {
     display: block;
-    width: 240px;
+    width: 20%;
     align-content: center;
     justify-content: center;
+    float: left;
+    margin-inline: 20px;
+    text-align: center;
 }
 
 .center-block {
@@ -196,4 +200,11 @@ input[type="submit"]:hover {
     margin-bottom: 20px;
     font-family: "Tenor Sans";
     background-color: #0162a7;
+}
+
+
+.routes-admin {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10%;
 }

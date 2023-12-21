@@ -1,16 +1,18 @@
 <h1>Остановки на маршруте</h1>
-<div class="days-nav">
-    {{#if isUserPage}}
-            <form action="/newbookmark/:number" method="POST"><button class="bookmark-button">Добавить в избранное</button></form>
-            {{/if}}
-</div>
-           <div class="stop-list">
+{{#if isUserPage}}
+    <div class="days-nav">
+        <form action="/newbookmark/:number" method="POST">
+            <button class="bookmark-button">Добавить в избранное</button>
+        </form>
+    </div>
+{{/if}}
+    <div class="stop-list">
                 <ul> 
                     {{#each stops}}
                         <li>
-                            <a href="/schedule-weekday">
-                                {{this}}
-                            </a>
+                            <form action="/schedule-weekday" method="POST">
+                                <button name="bus_stop" id="bus_stop">{{this}}</button>
+                            </form>
                         </li>
                     {{/each}}
                 </ul>
