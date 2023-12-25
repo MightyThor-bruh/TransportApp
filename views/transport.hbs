@@ -3,23 +3,27 @@
     <ul id="route-numbers">   
         {{#if isUserPage}}
             {{#each transport}}
-                <li>
-                    <a href="/user/route-stops/:number">
-                        {{#each this}}
-                            {{number}}
-                        {{/each}}
-                    </a>
-                </li>           
+                {{#each this}} 
+                    {{#if number}}
+                        <li>
+                            <a href="/user/route-stops/{{number}}">
+                                {{number}}
+                            </a>
+                        </li>
+                    {{/if}}
+                {{/each}}
             {{/each}}
         {{else}}
             {{#each transport}}
-                <li>
-                    <a href="/route-stops/:number">
-                        {{#each this}}
-                            {{number}}
-                        {{/each}}
-                    </a>
-                </li>           
+                {{#each this}} 
+                    {{#if number}}
+                        <li>
+                            <a href="/route-stops/{{number}}">
+                                {{number}}
+                            </a>
+                        </li>
+                    {{/if}}
+                {{/each}}       
             {{/each}}
 
         {{/if}} 
