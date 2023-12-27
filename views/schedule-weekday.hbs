@@ -1,4 +1,5 @@
 <h1>Расписание маршрута</h1>
+{{#if isUserPage}}
           <div class="days-nav">
             <a href="/schedule-weekday"><button style="background-color: #0162a7;">Будние</button></a>
             <a href="/schedule-weekend"><button style="background-color: rgb(176, 175, 175);">Выходные</button></a>
@@ -7,11 +8,6 @@
 
           <div class="nav-table">
             <table>
-              <tr>
-                {{#each schedule}}
-                <td>{{this}}</td>
-                {{/each}}
-              </tr>
               <tr>
                 <th>6</th>
                 <td>6:00</td>
@@ -44,3 +40,46 @@
           <div class="after-table-info">
             <p></p>
           </div>
+{{else}}
+<div class="days-nav">
+            <a href="/schedule-weekday"><button style="background-color: #0162a7;">Будние</button></a>
+            <a href="/schedule-weekend"><button style="background-color: rgb(176, 175, 175);">Выходные</button></a>
+            
+          </div>
+
+          <div class="nav-table">
+            <table>
+
+              <tr>
+                <th>6</th>
+                <td>6:00</td>
+                <td>6:15</td>
+                <td>6:30</td>
+                <td>6:45</td>
+                <td>6:55</td>
+              </tr>
+              <tr>
+                <th>7</th>
+                <td>7:02</td>
+                <td>7:10</td>
+                <td>7:16</td>
+                <td>7:22</td>
+                <td>7:28</td>
+                <td>7:32</td>
+                <td>7:40</td>
+                <td>7:46</td>
+                <td>7:51</td>
+              </tr>
+              <tr>
+                <th>10</th>
+                <td>10:22</td>
+                <td>10:35</td>
+                <td>10:41</td>
+                <td>10:55</td>
+              </tr>
+            </table>
+          </div>
+          <div class="after-table-info">
+            <p></p>
+          </div>
+{{/if}}

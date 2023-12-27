@@ -1,9 +1,9 @@
 <h1>Остановки на маршруте</h1>
 {{#if isUserPage}}
     <div class="days-nav">
-        <form action="/newbookmark/:number" method="POST">
-            <button class="bookmark-button">Добавить в избранное</button>
-        </form>
+        {{#each stops}}
+                <a href="/newbookmark/{{number}}"><button class="bookmark-button">Добавить в избранное</button></a>
+        {{/each}}
     </div>
 {{/if}}
     <div class="stop-list">

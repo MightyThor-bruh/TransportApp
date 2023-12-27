@@ -55,7 +55,7 @@ router.get(Routes.driver.list, driversController)
 router.get(Routes.transport.routes, transportRouteController)
 router.get(Routes.transport.type, transportTypeController);
 router.post(Routes.schedule.list, scheduleController);
-router.get(Routes.schedule.list, showScheduleController);
+router.get(Routes.schedule.list, scheduleController);
 router.get(Routes.schedule.weekend, showScheduleController);
 router.get(Routes.transport.stops, transportStopsController);
 //-----------------------------------AUTHORIZATION ROUTES---------------------------
@@ -71,7 +71,7 @@ router.post(Routes.user.signin, userSigninController);
 router.get(Routes.user.page, isAuth, userPageController);
 router.get(Routes.user.routes, isAuth, userRouteController);
 router.get(Routes.user.type, isAuth, userTypeController);
-router.post(Routes.user.newbookmark, isAuth, bookmarkController);
+router.get(Routes.user.newbookmark, isAuth, bookmarkController);
 router.get(Routes.user.bookmarks, isAuth, showBookmarkController);
 router.get(Routes.user.stops, isAuth, userStopsController);
 //-------------------------------DRIVER ROUTES------------------------

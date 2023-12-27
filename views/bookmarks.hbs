@@ -3,13 +3,15 @@
     <h1>Мои закладки</h1>
     <ul id="route-numbers">        
         {{#each marks}}
-            <li>
-                <a href="/user/route-stops/{{route}}">
-                     {{#each this}}
-                         {{route}}
-                    {{/each}}
-                </a>
-            </li>           
+            {{#each this}}
+                {{#if route}}
+                    <li>
+                        <a href="/user/route-stops/{{this.route}}">
+                            {{route}}
+                        </a>
+                    </li>   
+                {{/if}}
+            {{/each}}        
         {{/each}}
     </ul>
 

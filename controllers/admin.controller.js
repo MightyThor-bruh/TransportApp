@@ -78,7 +78,6 @@ const deleteBusController = (req, res, next) => {
 const updateBusController = (req, res, next) => {
     const number = req.body.number; 
     const updateData = {
-        type: req.body.type,
         schedule: [
             {
                 arrival_time: req.body.arrival_time,
