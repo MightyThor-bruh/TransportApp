@@ -5,7 +5,8 @@ const BookmarksSchema = new Schema({
     type: String,
     ref: 'Users',
   },
-  route: String,
+  route_number: String,
+  route_type: String
 });
 
 export default BookmarksSchema

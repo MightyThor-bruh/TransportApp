@@ -29,9 +29,9 @@ const busController = (req, res, next) => {
         type: req.body.type,
         schedule: [
             {
-                arrival_time: req.body.arrival_time,
-                bus_stop: req.body.bus_stop,
-                day_of_week: req.body.day_of_week
+                time: req.body.time,
+                stop: req.body.stop,
+                weekday: req.body.weekday
             },
         ]
     }

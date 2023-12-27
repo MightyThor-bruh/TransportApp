@@ -25,6 +25,7 @@ import {
 import {showScheduleController, 
     bookmarkController, 
     showBookmarkController,
+    removeBookmarkController,
     scheduleController
 } from "../controllers/schedule.controller.js";
 import {
@@ -72,6 +73,7 @@ router.get(Routes.user.page, isAuth, userPageController);
 router.get(Routes.user.routes, isAuth, userRouteController);
 router.get(Routes.user.type, isAuth, userTypeController);
 router.get(Routes.user.newbookmark, isAuth, bookmarkController);
+router.get(Routes.user.removebookmark, isAuth, removeBookmarkController);
 router.get(Routes.user.bookmarks, isAuth, showBookmarkController);
 router.get(Routes.user.stops, isAuth, userStopsController);
 //-------------------------------DRIVER ROUTES------------------------

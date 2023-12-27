@@ -4,9 +4,9 @@ const TransportRouteSchema = new Schema({
   number: String,
   type: String,
   schedule: [{
-    arrival_time: String,
-    bus_stop: String,
-    day_of_week: String,
+    time: String,
+    stop: String,
+    weekday: Number,
   }]
 });
 

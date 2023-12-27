@@ -23,7 +23,7 @@ const transportRouteController = (req, res, next) => {
 
 const protectedRouteController = (req, res, next) => {
     if (req.isAuthenticated()) {
-        res.send('<h1>You are authenticated</h1><p><a href="/logout">Logout and reload</a></p>');
+        res.send('<h1>You are authenticated</h1><p><a href="/autouser">User Page</a></p><p><a href="/logout">Logout and reload</a></p>');
     } else {
         res.send('<h1>You are not authenticated</h1><p><a href="/login">Login</a></p>');
     }

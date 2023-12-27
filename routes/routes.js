@@ -11,16 +11,17 @@ const routes = {
         page: "/autouser",
         routes: "/user/:type",
         type: "/types",
-        newbookmark: "/newbookmark/:number",
+        newbookmark: "/newbookmark/:number/:type",
+        removebookmark: "/removebookmark/:number/:type",
         bookmarks: "/bookmarks",
-        stops: "/user/route-stops/:number"
+        stops: "/user/route-stops/:number/:type"
 
     },
     transport: {
         type: "/types",
         routes: "/transport/:type",
         protected: "/protected-route",
-        stops: "/route-stops/:number"
+        stops: "/route-stops/:number/:type"
     },
     admin: {
         index: "/admin",

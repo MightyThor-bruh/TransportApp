@@ -94,21 +94,32 @@ const userTypeController = async (req, res, next) => {
 
 const userStopsController = (req, res, next) => {
     const transportNumber = req.params && req.params.number;
+    const transportType = req.params && req.params.type;
+    const user = req.user.username;
     const userStopModel = db.getModel(DB_COLLECTIONS.ROUTES);
-    userStopModel.find({number: `${transportNumber}`}).exec().then((data) => {
-        const allStops = data[0].schedule.map((stop) => stop.bus_stop);
+    const markModel = db.getModel(DB_COLLECTIONS.BOOKMARKS);
+
+    const UserBookmarks = markModel.find({user: `${user}`}).exec();
+    const UserStops = userStopModel.find({number: `${transportNumber}`, type: `${transportType}`}).distinct("schedule.stop")
+    Promise.all([UserBookmarks, UserStops]).then((result) => {
+        const bookmarks = result[0];
+        const routeStops = result[1];
+        const bookmark = bookmarks.findIndex(item => item.route_number === transportNumber &&  item.route_type === transportType);
+
         res.render('route-stops', {
             title: "Остановки на маршруте",
             isUserPage: true,
-            stops: allStops
+            stops: routeStops,
+            type: transportType,
+            number: transportNumber,
+            isBookmarked: bookmark !== -1
         });
-    }).catch((err) => {        
-        console.log(err);
+    }).catch((error) => {
+        console.log(error);
         res.status(500).send('Error getting route stops');
     }).finally(() => {
         console.log(`Route stops List send!`);
-    });
-    
+    })
 }
 
 export {

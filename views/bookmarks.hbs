@@ -2,18 +2,13 @@
 <div class="center-block">
     <h1>Мои закладки</h1>
     <ul id="route-numbers">        
-        {{#each marks}}
-            {{#each this}}
-                {{#if route}}
-                    <li>
-                        <a href="/user/route-stops/{{this.route}}">
-                            {{route}}
-                        </a>
-                    </li>   
-                {{/if}}
-            {{/each}}        
+        {{#each route}}
+            <li>
+                <a href="/user/route-stops/{{this.number}}/{{this.type}}">
+                    {{this.number}}
+                </a>
+            </li>
         {{/each}}
     </ul>
-
 </div>
 {{/if}}

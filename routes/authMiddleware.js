@@ -4,7 +4,7 @@ export function isAuth(req, res, next) {
         next();
     } 
     else {
-        res.status(401).json({msg: 'Вы не авторизованы и не можете просматривать данный ресурс'});
+        res.render('notAuth');
     }
 }
 
@@ -13,7 +13,7 @@ export function isAdmin(req, res, next) {
         next();
     } 
     else {
-        res.status(401).json({msg: 'Вы не авторизованы и не можете просматривать данный ресурс'});
+        res.render('notAuth');
     }
 }
 
@@ -22,6 +22,6 @@ export function isDriver(req, res, next) {
         next();
     } 
     else {
-        res.status(401).json({msg: 'Вы не авторизованы и не можете просматривать данный ресурс'});
+        res.render('notAuth');
     }
 }
