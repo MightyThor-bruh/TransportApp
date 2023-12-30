@@ -1,7 +1,8 @@
 import { Router } from "express";
 import {
     driversController, 
-    driversPageController
+    driversPageController,
+    driversTripsController
 } from '../controllers/drivers.controller.js';
 import {
     transportRouteController, 
@@ -78,6 +79,7 @@ router.get(Routes.user.bookmarks, isAuth, showBookmarkController);
 router.get(Routes.user.stops, isAuth, userStopsController);
 //-------------------------------DRIVER ROUTES------------------------
 router.get(Routes.driver.index, isDriver, driversPageController);
+router.get(Routes.driver.trips, isDriver, driversTripsController);
 //-------------------------------ADMIN ROUTES------------------------
 router.get(Routes.admin.index, isAdmin, adminController);
 router.get(Routes.admin.bus, isAdmin, showBusController);

@@ -1,3 +1,29 @@
 {{#if isDriverPage}}
-    <p></p>
+
+    <div class="trip-table">
+        <table>
+            <tr>
+                <td style="background-color: #0162a7;color: white">Маршрут</td>
+                <td style="background-color: #0162a7;color: white">Статус</td>
+            </tr>
+            {{#each trips}}
+                <tr>
+                    <td>
+                        {{#each this}}
+                            <span>
+                                {{route}}
+                             </span>
+                         {{/each}}
+                    </td>
+                    <td>
+                        {{#each this}}
+                            <span>
+                                {{status}}
+                            </span>
+                         {{/each}}
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
 {{/if}}

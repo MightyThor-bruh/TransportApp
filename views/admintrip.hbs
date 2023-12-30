@@ -6,11 +6,11 @@
             <label for="driver">Водитель:</label>
             <select id="driver" name="driver">
                 {{#each driversList}}
-                    <option value="{{this}}">
-                        {{#each this}}
+                    {{#each this}}
+                        <option value="{{this.username}}">
                             {{this.username}}
-                        {{/each}}
-                    </option>
+                        </option>
+                    {{/each}}
                 {{/each}}
             </select>
 
@@ -28,11 +28,11 @@
             <label for="driver">Водитель:</label>
             <select id="driver" name="driver">
                 {{#each driversList}}
-                    <option value="{{this}}">
-                        {{#each this}}
+                    {{#each this}}
+                        <option value="{{this.username}}">
                             {{this.username}}
-                        {{/each}}
-                    </option>
+                        </option>
+                    {{/each}}
                 {{/each}}
             </select>
 
@@ -50,11 +50,11 @@
             <label for="driver">Водитель:</label>
             <select id="driver" name="driver">
                 {{#each driversList}}
-                    <option value="{{this}}">
-                        {{#each this}}
+                    {{#each this}}
+                        <option value="{{this.username}}">
                             {{this.username}}
-                        {{/each}}
-                    </option>
+                        </option>
+                    {{/each}}
                 {{/each}}
             </select>
 
