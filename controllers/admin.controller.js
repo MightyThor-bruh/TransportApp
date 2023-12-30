@@ -15,11 +15,22 @@ const showBusController = (req, res, next) => {
     });
 }
 
-const showTripController = (req, res, next) => {
-    res.render('admintrip', {
-        title: 'Управление поездками',
-        isAdminPage: true,
-    });
+const showTripController = async (req, res, next) => {
+    const DriversModel = db.getModel(DB_COLLECTIONS.USERS);
+    const drivers = await DriversModel.find({driver: true}).exec();
+    if(drivers) {
+        res.render('admintrip', {
+            title: 'Управление поездками',
+            isAdminPage: true,
+            driversList: drivers
+        });
+        console.log(drivers);
+    }
+    else {
+        console.log(err);  
+        res.status(500).send('Error getting driver'); 
+    }      
+    
 }
 
 const busController = (req, res, next) => {
