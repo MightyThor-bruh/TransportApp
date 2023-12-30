@@ -11,7 +11,10 @@
   "author": "",
   "license": "ISC",
   "nodemonConfig": {
-    "ignore": ["**/test/**", "**/docs/**"],
+    "ignore": [
+      "**/test/**",
+      "**/docs/**"
+    ],
     "delay": 1000
   },
   "dependencies": {
