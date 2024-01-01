@@ -232,3 +232,7 @@ input[type="submit"]:hover {
     background-color: #0162a7;
     color: white;
 }
+.trip-table {
+    display: flex;
+    justify-content: center;
+}

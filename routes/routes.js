@@ -37,7 +37,8 @@ const routes = {
     },
     driver: {
         list: "/drivers",
-        index: "/autodriver"
+        index: "/autodriver",
+        trips: "/trips"
     }
 }
 
