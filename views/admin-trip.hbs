@@ -21,6 +21,7 @@
                 <input type="submit" value="Добавить поездку">
             </form>
         </div>
+
         <div class="form-block">
             <h4>Изменить поездку</h4>
             <form action="/updatetrip" method="post">
@@ -42,6 +43,7 @@
                 <input type="submit" value="Изменить поездку">
             </form>
         </div>
+
         <div class="form-block">
             <h4>Удалить поездку</h4>
             <form action="/deletetrip" method="post">
@@ -55,6 +57,7 @@
                         </option>
                     {{/each}}
                 </select>
+
                 <label for="route">Маршрут:</label>
                 <input type="text" id="route" name="route"><br><br>
                 <input type="submit" value="Удалить поездку">
