@@ -1,92 +1,37 @@
-{{#if isLoginPage}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/form-styles.css">
-    <title>{{title}}</title>
-</head>
-
-
-{{else}}
-{{#if isUserPage}}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css">
-        
-    </head>
-    <body>
-        <div class="header">
-            <ul>
-                {{#if isDriverPage}}
-                    <li><a href="/autodriver"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
-                {{else}}
-                    <li><a href="/autouser"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
-                {{/if}}
-              <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
-              <li><a href="/user/bus">Автобусы</a></li>
-              <li><a href="/user/troll">Троллейбусы</a></li>
-              <li><a href="/user/tram">Трамваи</a></li>
-              
-              <li style="float:right"><a href="/logout">Выйти</a></li>
-              {{#if isDriverPage}}
+<header>
+    {{#if isUserPage}}
+        <ul>
+            {{#if isDriverPage}}
+                <li><a href="/autodriver"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+            {{else}}
+                <li><a href="/autouser"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+            {{/if}}
+            <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
+            <li><a href="/user/bus">Автобусы</a></li>
+            <li><a href="/user/troll">Троллейбусы</a></li>
+            <li><a href="/user/tram">Трамваи</a></li>
+            {{#if isDriverPage}}
                 <li style="float:right"><a href="/trips">Рейсы</a></li>
-              {{else}}
+            {{else}}
                 <li style="float:right"><a href="/bookmarks">Избранные маршруты</a></li>
-              {{/if}}
-            </ul>
-        </div>
-        <div class="content">
-
-{{else if isAdminPage}}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css">
-        
-    </head>
-    <body>
-        <div class="header">
-            <ul>
-              <li><a href="/admin"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
-              <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
-              <li><a href="/adminbus">Маршруты</a></li>
-              <li><a href="/admintrip">Рейсы</a></li>
-              
-              <li style="float:right"><a href="/logout">Выйти</a></li>
-              
-            </ul>
-        </div>
-        <div class="content">
-
-{{else}}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css">
-        
-    </head>
-    <body>
-        <div class="header">
-            <ul>
-              <li><a href="/"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
-              <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
-              <li><a href="/transport/bus">Автобусы</a></li>
-              <li><a href="/transport/troll">Троллейбусы</a></li>
-              <li><a href="/transport/tram">Трамваи</a></li>
-              
-              <li style="float:right"><a href="/login">Войти</a></li>
-              <li style="float:right"><a href="/register">Регистрация</a></li>
-            </ul>
-        </div>
-        <div class="content">
-{{/if}}
-{{/if}}
+            {{/if}}
+            {{#if isAdminPage}}
+                <li><a href="/admin"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+                <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
+                <li><a href="/adminbus">Маршруты</a></li>
+                <li><a href="/admintrip">Рейсы</a></li>
+            {{/if}}
+            <li style="float:right"><a href="/logout">Выйти</a></li>
+        </ul>
+    {{else}}
+        <ul>
+            <li><a href="/"><img src="/css/images/logotype.png" alt="Главная" width="30px" height="25px"></a></li>
+            <li style="float:left"><input type="text" placeholder="Поиск остановок" style="margin-top: 15px;"></li>
+            <li><a href="/transport/bus">Автобусы</a></li>
+            <li><a href="/transport/troll">Троллейбусы</a></li>
+            <li><a href="/transport/tram">Трамваи</a></li>
+            <li style="float:right"><a href="/login">Войти</a></li>
+            <li style="float:right"><a href="/register">Регистрация</a></li>
+        </ul>
+    {{/if}}
+</header>

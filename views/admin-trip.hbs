@@ -1,0 +1,64 @@
+{{#if isAdminPage}}
+    <div class="routes-admin">
+        <div class="form-block">
+            <h4>Добавить новую поездку</h4>
+            <form action="/addtrip" method="post">
+                <label for="driver">Водитель:</label>
+                <select id="driver" name="driver">
+                    {{#each driversList}}
+                        <option value="{{this}}">
+                            {{#each this}}
+                                {{this.username}}
+                            {{/each}}
+                        </option>
+                    {{/each}}
+                </select>
+
+                <label for="route">Маршрут:</label>
+                <input type="text" id="route" name="route"><br><br>
+                <label for="status">Статус:</label>
+                <input type="text" id="status" name="status"><br><br>
+                <input type="submit" value="Добавить поездку">
+            </form>
+        </div>
+        <div class="form-block">
+            <h4>Изменить поездку</h4>
+            <form action="/updatetrip" method="post">
+                <label for="driver">Водитель:</label>
+                <select id="driver" name="driver">
+                    {{#each driversList}}
+                        <option value="{{this}}">
+                            {{#each this}}
+                                {{this.username}}
+                            {{/each}}
+                        </option>
+                    {{/each}}
+                </select>
+
+                <label for="route">Маршрут:</label>
+                <input type="text" id="route" name="route"><br><br>
+                <label for="status">Статус:</label>
+                <input type="text" id="status" name="status"><br><br>
+                <input type="submit" value="Изменить поездку">
+            </form>
+        </div>
+        <div class="form-block">
+            <h4>Удалить поездку</h4>
+            <form action="/deletetrip" method="post">
+                <label for="driver">Водитель:</label>
+                <select id="driver" name="driver">
+                    {{#each driversList}}
+                        <option value="{{this}}">
+                            {{#each this}}
+                                {{this.username}}
+                            {{/each}}
+                        </option>
+                    {{/each}}
+                </select>
+                <label for="route">Маршрут:</label>
+                <input type="text" id="route" name="route"><br><br>
+                <input type="submit" value="Удалить поездку">
+            </form>
+        </div>
+    </div>
+{{/if}}

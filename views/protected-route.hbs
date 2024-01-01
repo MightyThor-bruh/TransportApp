@@ -1,0 +1,11 @@
+<div class="protected-route">
+    <h1>Вы успешно авторизировались!</h1>
+    <p>
+        {{#if isDriver}}
+            <a href="/autodriver">Страница Водителя</a>
+        {{else}}
+            <a href="/autouser">Страница Пользователя</a>
+        {{/if}}
+        <a href="/logout">Выйти из аккаунта</a>
+    </p>
+</div>

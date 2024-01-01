@@ -1,14 +1,14 @@
 {{#if isUserPage}}
-<div class="center-block">
-    <h1>Мои закладки</h1>
-    <ul id="route-numbers">        
-        {{#each route}}
-            <li>
-                <a href="/user/route-stops/{{this.number}}/{{this.type}}">
-                    {{this.number}}
-                </a>
-            </li>
-        {{/each}}
-    </ul>
-</div>
+    <div class="center-block">
+        <h1>Мои закладки</h1>
+        <ul id="route-numbers">
+            {{#each route}}
+                <li>
+                    <a href="/user/route-stops/{{this.number}}/{{this.type}}">
+                        {{this.number}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
 {{/if}}

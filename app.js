@@ -1,13 +1,12 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { PORT, DB_NAME } from './constants/constants.js';
+import { PORT } from './constants/constants.js';
 import router from './routes/router.js';
 import { join } from 'path';
 import { engine } from 'express-handlebars';
 import session from 'express-session';
 import passport from 'passport';
-import { Strategy as LocalStrategy } from 'passport-local';
 import './config/passport.js';
 import 'dotenv/config'
 const __filename = fileURLToPath(import.meta.url);

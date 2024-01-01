@@ -5,6 +5,7 @@ const adminController = (req, res, next) => {
     res.render('index', {
         title: 'Главная',
         isAdminPage: true,
+        auth: true
     });
 };
 
@@ -19,7 +20,7 @@ const showTripController = async (req, res, next) => {
     const DriversModel = db.getModel(DB_COLLECTIONS.USERS);
     const drivers = await DriversModel.find({driver: true}).exec();
     if(drivers) {
-        res.render('admintrip', {
+        res.render('admin-trip', {
             title: 'Управление поездками',
             isAdminPage: true,
             driversList: drivers
@@ -151,7 +152,7 @@ const tripController = (req, res, next) => {
     const trip = new tripModel(req.body);
     console.log(trip);
     trip.save().then((data) => {
-        res.render('admintrip', {
+        res.render('admin-trip', {
             title: 'Управление поездками',
             isAdminPage: true,
         });
@@ -173,7 +174,7 @@ const updateTripController = (req, res, next) => {
     const updateTripModel = db.getModel(DB_COLLECTIONS.TRIPS);
     updateTripModel.findOneAndUpdate({driver: driver}, updateData, { new: true }).then((data) => {
         if (data) {
-            res.render('admintrip', {
+            res.render('admin-trip', {
                 title: 'Управление поездками',
                 isAdminPage: true,
             });
@@ -197,7 +198,7 @@ const deleteTripController = (req, res, next) => {
     const deleteTripModel = db.getModel(DB_COLLECTIONS.TRIPS);
     deleteTripModel.findOneAndDelete({driver, route}).then((data) => {
         if (data) {
-            res.render('admintrip', {
+            res.render('admin-trip', {
                 title: 'Управление поездками',
                 isAdminPage: true,
             });

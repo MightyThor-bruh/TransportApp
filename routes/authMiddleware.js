@@ -4,7 +4,7 @@ export function isAuth(req, res, next) {
         next();
     } 
     else {
-        res.render('notAuth');
+        res.render('auth-end');
     }
 }
 
@@ -13,7 +13,7 @@ export function isAdmin(req, res, next) {
         next();
     } 
     else {
-        res.render('notAuth');
+        res.render('auth-end');
     }
 }
 
@@ -22,6 +22,6 @@ export function isDriver(req, res, next) {
         next();
     } 
     else {
-        res.render('notAuth');
+        res.render('auth-end');
     }
 }

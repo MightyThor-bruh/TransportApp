@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-    driversController, 
+    driversListController,
     driversPageController
 } from '../controllers/drivers.controller.js';
 import {
@@ -40,6 +40,7 @@ import {
     updateTripController,
     deleteTripController
 } from "../controllers/admin.controller.js";
+import {defaultPageController} from "../controllers/index.controller.js";
 
 import { isAuth, isAdmin, isDriver } from './authMiddleware.js';
 import Routes from './routes.js';
@@ -47,12 +48,8 @@ import Routes from './routes.js';
 const router = Router();
 
 //-------------------------------UNAUTHORIZED USERS' ROUTES------------------------
-router.get(Routes.index, (req, res, next) => {
-    res.render('index', {
-        title: 'Главная',
-    });
-});
-router.get(Routes.driver.list, driversController)
+router.get(Routes.index, defaultPageController);
+router.get(Routes.driver.list, driversListController)
 router.get(Routes.transport.routes, transportRouteController)
 router.get(Routes.transport.type, transportTypeController);
 router.post(Routes.schedule.list, scheduleController);

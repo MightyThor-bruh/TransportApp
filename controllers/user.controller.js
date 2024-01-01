@@ -42,7 +42,7 @@ const loginPageController = (req, res, next) => {
 }
 
 const signinPageController = (req, res, next) => {
-    res.render('register', {
+    res.render('signin', {
         title: 'Регистрация',
         isLoginPage: true,
     });
@@ -59,6 +59,7 @@ const userPageController = (req, res, next) => {
     res.render('index', {
         title: 'Главная',
         isUserPage: true,
+        auth: true,
     });
 }
 

@@ -1,35 +1,10 @@
-@font-face {
-    font-family: "Montserrat Alternates";
-    src: url("fonts/MontserratAlternates-Regular.woff") format("woff");
-  }
-
-  @font-face {
-    font-family: "Tenor Sans";
-    src: url("fonts/TenorSans-Regular.woff") format("woff");
-  }
-
-body {
-    font-family: "Tenor Sans";
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-h1 {
-    text-align: center;
-}
-
 .login-container {
-    background-color: #ffffff;
+    transform: translate(0, 50%);
+    margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 4px 6px rgba(0, 0, 0, 0.15);
     width: 300px;
-    display: flex;
-    flex-direction: column;
 }
 
 .login-form {
@@ -41,6 +16,12 @@ h1 {
     font-weight: bold;
     margin-bottom: 10px;
 }
+.login-form input[type="text"] {
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
@@ -48,6 +29,8 @@ h1 {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .login-form input[type="submit"] {
@@ -59,16 +42,6 @@ h1 {
     cursor: pointer;
 }
 
-.register-link {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.register-link a {
-    text-decoration: none;
-    color: #0162a7;
-}
-
 .home-link {
     text-align: center;
     margin-top: 10px;
@@ -77,44 +50,6 @@ h1 {
 .home-link a {
     text-decoration: none;
     color: #0162a7;
-}
-
-.register-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-}
-
-.register-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.register-form label {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.register-form input[type="text"],
-.register-form input[type="password"],
-.register-form input[type="email"] {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.register-form input[type="submit"] {
-    background-color: #0162a7;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 3px;
-    cursor: pointer;
 }
 
 .login-link {
